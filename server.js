@@ -32,6 +32,10 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({ storage });
 
+app.get("/", (req, res) => {
+  res.json({message: "Converse file upload api working"});
+});
+
 // File upload route
 app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) {
