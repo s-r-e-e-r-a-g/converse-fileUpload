@@ -4,6 +4,17 @@ import { v2 as cloudinary } from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import cors from 'cors';
 import "dotenv/config";
+import cron from 'node-cron';
+import axios from 'axios';
+
+cron.schedule('*/10 * * * *', async () => {
+  try {
+    await axios.get('https://converse-fileupload.onrender.com/');
+    console.log('Pinged self');
+  } catch (err) {
+    console.error('Self-ping failed:', err.message);
+  }
+});
 
 
 const app = express();
