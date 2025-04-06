@@ -10,6 +10,7 @@ import axios from 'axios';
 cron.schedule('*/10 * * * *', async () => {
   try {
     await axios.get('https://converse-fileupload.onrender.com/');
+    await axios.get('https://converse-backend.onrender.com/');
     console.log('Pinged self');
   } catch (err) {
     console.error('Self-ping failed:', err.message);
