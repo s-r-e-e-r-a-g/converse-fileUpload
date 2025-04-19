@@ -7,7 +7,7 @@ import "dotenv/config";
 import cron from 'node-cron';
 import axios from 'axios';
 
-cron.schedule('*/10 * * * *', async () => {
+cron.schedule('0 12 * * *', async () => {
   try {
     await axios.get('https://converse-fileupload.onrender.com/');
     await axios.get('https://converse-backend.onrender.com/');
